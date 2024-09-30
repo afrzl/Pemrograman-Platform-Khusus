@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CRUD Application</title>
+</head>
+<body>
+<h1>CRUD Application</h1>
+<form action="/add" method="post">
+    <input type="text" name="item" placeholder="Enter item" required>
+    <button type="submit">Add</button>
+</form>
+<ul>
+    <li th:each="item, index : ${items}">
+        <span th:text="${item}"></span>
+        <a th:href="@{/edit/{index}(index=${index.index})}">Edit</a>
+        <a th:href="@{/delete/{index}(index=${index.index})}">Delete</a>
+    </li>
+</ul>
+</body>
+</html>
