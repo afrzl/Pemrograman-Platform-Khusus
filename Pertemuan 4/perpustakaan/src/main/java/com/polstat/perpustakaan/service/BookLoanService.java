@@ -56,7 +56,6 @@ public class BookLoanService {
         BookLoan bookLoan = bookLoanRepository.findById(loanId)
                 .orElseThrow(() -> new RuntimeException("Loan not found with ID: " + loanId));
 
-        // Ensure the member and book are loaded
         Hibernate.initialize(bookLoan.getMember());
         Hibernate.initialize(bookLoan.getBook());
 
